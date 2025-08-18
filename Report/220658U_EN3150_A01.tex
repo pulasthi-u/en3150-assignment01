@@ -1,5 +1,5 @@
 \documentclass{article}[a4paper]
-\usepackage[a4paper, total={6.5in, 9.5in}]{geometry}
+\usepackage[a4paper, total={6in, 9.5in}]{geometry}
 \usepackage{charter}
 \usepackage{xcolor}
 \usepackage{graphicx}
@@ -8,6 +8,7 @@
 \usepackage{tabularray}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 
 \lstset{
@@ -58,26 +59,26 @@
 	\section{Impact of Outliers on Linear Regression}
 
 	\textbf{Question 02}
-	We start by representing the independent in a matrix \[
+	We start by representing the independent variables in a matrix \[
 		\mathbf{X} = \begin{pmatrix}
 			1		& x_1		\\
 			\vdots	& \vdots	\\
 			1		& x_n
 		\end{pmatrix},
-	\] and the dependent variables in a vector \[
+	\] the dependent variables in a vector \[
 		\mathbf{y} = \begin{pmatrix}
 			y_1 & \cdots & y_n
 		\end{pmatrix} ^ \top,
-	\] and look for a vector of weights $\mathbf{w}_\text{OLS} = \begin{pmatrix} w_0 & w_1 \end{pmatrix} ^ \top$ such that \[
+	\] and directly use the result that \[
 		\mathbf{w}_\text{OLS}
+		=
+		\begin{pmatrix} w_0 & w_1 \end{pmatrix} ^ \top
 		=
 		\underset{\mathbf{w}}{\arg\min}
-		\left( \mathbf{y} - \mathbf{X} \mathbf{w} \right)^2.
-	\] We directly use the result that \[
-		\mathbf{w}_\text{OLS}
+		\left( \mathbf{y} - \mathbf{X} \mathbf{w} \right)^2
 		=
 		\left( \mathbf{X}^\top \mathbf{X} \right)^{-1} \mathbf{X}^\top \mathbf{y}.
-	\] We implement exactly what is described above in code, and obtain the following result:
+	\] This yielded the following result:
 	\begin{lstlisting}
 Ordinary Least Squares Weights (w): [ 3.91672727 -3.55727273]
 	\end{lstlisting}
@@ -95,9 +96,34 @@ Ordinary Least Squares Weights (w): [ 3.91672727 -3.55727273]
 		\label{q1}
 	\end{figure}
 
-	\textbf{Question 04} abc
-	
-	\textbf{Question 05} pqr
+	\textbf{Question 04} The code in X was used to calculate the loss for each model, for each given value
+	of $\beta$. The output of the code was the following:
+	\begin{verbatim}
+Model 1 : [12 -4]
+	 Loss for beta = 1      : 0.435416262490386
+	 Loss for beta = 1e-06  : 0.9999999998258207
+	 Loss for beta = 1000.0 : 0.0002268287498440988
+Model 2 : [ 3.91 -3.55]
+	 Loss for beta = 1      : 0.9728470518681676
+	 Loss for beta = 1e-06  : 0.9999999999999718
+	 Loss for beta = 1000.0 : 0.00018824684654645654
+	\end{verbatim}
+
+	Summarizing the results in a table, we have
+	\newline
+
+	\begin{tblr}{
+		colspec={X[1, c] X[1, c] X[1, c]},
+		hlines, vlines
+	}
+		$\beta$		& Model 1	& Model 2 \\
+		$1$			& $0.4354$	& $0.9728$ \\
+		$10^{-6}$	& $0.9999$  & $1.0000$ \\
+		$10^3$		& $0.0002$  & $0.0002$ \\
+	\end{tblr}
+	\newline
+
+	\textbf{Question 05} We propose setting $\beta = 1$ to mitigate the impact of outliers.
 
 	\textbf{Question 06} xyz
 
@@ -149,6 +175,61 @@ Ordinary Least Squares Weights (w): [ 3.91672727 -3.55727273]
 
 	\section{Data Pre-Processing}
 
-	\textbf{Question 01}
+	\textbf{Question 01} To decide a suitable form of scaling for each feature, we start by visualizing the
+	them. The plots in Figure \ref{q3_1} show the distribution of each feature in the dataset.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{images/q3_1.png}
+		\label{q3_1}
+		\caption{abc}
+	\end{figure}
+
+	We then run the code in Y to obtain the following summary statistics of each feature:
+	\begin{verbatim}
+Feature 1
+	 Mean 				: 0.06963158220374253
+	 Standard Deviation : 0.751690461643816
+	 Maximum 			: 5.2
+	 Minimum 			: -2.790493210023752
+	 Range 				: 7.990493210023752
+Feature 2
+	 Mean 				: -0.45935709567298505
+	 Standard Deviation : 14.351150951654933
+	 Maximum 			: 36.752574877667975
+	 Minimum 			: -39.11938330852965
+	 Range 				: 75.87195818619762
+	\end{verbatim}
+
+	Based on the plots above and the above summary statistics, we conclude the following;
+	\begin{itemize}
+		\item both features have means close to zero
+		\item the features vary on different scales, as they have significantly different standard deviations
+		\item both features take on both positive and negative values
+		\item Feature 1 is sparsely distributed, with most values being equal to 0
+	\end{itemize}
+
+	To bring the values of both features to a similar scale, while still preserving the structure and properties of
+	each feature, we consider the three following scaling methods;
+	\begin{enumerate}
+		\item standard scaling,
+		\item min-max scaling, and
+		\item max-abs scaling.
+	\end{enumerate}
+	
+	We rule out min-max scaling as it would limit both feature values to a range between 0 and 1, affecting the 
+	"symmetric" variation among both negative and positive values of both feature values.
+
+	To choose between standard and max-abs scaling, we consider the sparsity of Feature 1. Standard scaling would 
+	map the zeros of Feature 1 to non-zero values, resulting in a loss of sparsity, which is a property that
+	one would likely want to preserve. Max-abs scaling does not affect sparsity, and maps zeros to zeros. Further, it
+	maps to a range between -1 and 1, so negative values map to negative values and positives to positives.
+
+	Hence, we choose max-abs scaling for both feature values. A plot of both feature values after the above scaling
+	was applied is shown in Figure \ref{q3_2}. We recalculate the summary statistics for the scaled features too, and
+	the results obtained are given below:
+	\begin{verbatim}
+vab
+	\end{verbatim}
 
 \end{document}
