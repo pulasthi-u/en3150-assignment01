@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.6)  18 AUG 2025 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.6)  18 AUG 2025 20:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -396,30 +396,30 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 ) (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
-LaTeX Font Info:    Trying to load font information for OT1+bch on input line 55.
+LaTeX Font Info:    Trying to load font information for OT1+bch on input line 56.
  (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1bch.fd
 File: ot1bch.fd 2004/10/18 font definitions for OT1/bch.
 ) (220658U_EN3150_A01.aux)
 \openout1 = `220658U_EN3150_A01.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -480,33 +480,29 @@ Package: ninecolors 2022-02-13 v2022D Select colors with proper color contrast
  (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
 Package: xparse 2024-08-16 L3 Experimental document command parser
 ))
-Package hyperref Info: Link coloring OFF on input line 55.
+Package hyperref Info: Link coloring OFF on input line 56.
  (220658U_EN3150_A01.out) (220658U_EN3150_A01.out)
 \@outlinefile=\write3
 \openout3 = `220658U_EN3150_A01.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 59.
  (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 58.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 59.
  (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 <images/q1.png, id=16, 414.8298pt x 312.2064pt>
 File: images/q1.png Graphic file (type png)
 <use images/q1.png>
-Package pdftex.def Info: images/q1.png  used on input line 94.
-(pdftex.def)             Requested size: 303.53267pt x 228.4471pt.
+Package pdftex.def Info: images/q1.png  used on input line 99.
+(pdftex.def)             Requested size: 346.89731pt x 261.0892pt.
 
 
 [1
 
 {C:/Users/HP/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 112--114
-
- []
-
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -516,66 +512,104 @@ Underfull \hbox (badness 10000) in paragraph at lines 112--114
 > Step: calculate cell and line sizes.
 > Step: build the whole table.
 
-Overfull \hbox (14.99998pt too wide) in paragraph at lines 123--125
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--125
+Underfull \hbox (badness 10000) in paragraph at lines 135--137
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--142
-
- []
-
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
-> Step: calculate cell and line sizes.
-> Step: build the whole table.
-
-Overfull \hbox (15.00003pt too wide) in paragraph at lines 162--164
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--164
+Underfull \hbox (badness 10000) in paragraph at lines 145--148
 
  []
 
 
 
 [2 <./images/q1.png>]
-<images/q2.png, id=44, 400.3758pt x 312.2064pt>
+Underfull \hbox (badness 10000) in paragraph at lines 162--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--174
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--178
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--182
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--194
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--198
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--202
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--215
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--220
+
+ []
+
+
+
+[3]
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
+<images/q2.png, id=49, 400.3758pt x 312.2064pt>
 File: images/q2.png Graphic file (type png)
 <use images/q2.png>
-Package pdftex.def Info: images/q2.png  used on input line 169.
+Package pdftex.def Info: images/q2.png  used on input line 260.
 (pdftex.def)             Requested size: 303.53267pt x 236.70766pt.
-<images/q3_1.png, id=46, 916.3836pt x 615.0177pt>
+
+
+[4]
+<images/q3_1.png, id=57, 916.3836pt x 615.0177pt>
 File: images/q3_1.png Graphic file (type png)
 <use images/q3_1.png>
-Package pdftex.def Info: images/q3_1.png  used on input line 183.
+Package pdftex.def Info: images/q3_1.png  used on input line 274.
 (pdftex.def)             Requested size: 303.53267pt x 203.70721pt.
 
 
-[3 <./images/q2.png>]
-LaTeX Font Info:    Trying to load font information for TS1+bch on input line 206.
+[5 <./images/q2.png> <./images/q3_1.png>]
+LaTeX Font Info:    Trying to load font information for TS1+bch on input line 297.
  (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1bch.fd
 File: ts1bch.fd 2004/10/18 font definitions for TS1/bch.
 )
 
-LaTeX Warning: Reference `q3_2' on page 4 undefined on input line 229.
+LaTeX Warning: Reference `q3_2' on page 6 undefined on input line 320.
 
 
 
-[4 <./images/q3_1.png>]
-
-[5] (220658U_EN3150_A01.aux)
+[6] (220658U_EN3150_A01.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -588,17 +622,17 @@ Package rerunfilecheck Info: File `220658U_EN3150_A01.out' has not changed.
 (rerunfilecheck)             Checksum: 65E9027C4486A89B3290BAD4F7984286;510.
  ) 
 Here is how much of TeX's memory you used:
- 15494 strings out of 473530
- 262874 string characters out of 5716247
+ 15114 strings out of 473530
+ 259721 string characters out of 5716247
  866471 words of memory out of 5000000
- 38520 multiletter control sequences out of 15000+600000
+ 38139 multiletter control sequences out of 15000+600000
  587926 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,99p,308b,1172s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/bitstrea/charter/bchb8a.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/bitstrea/charter/bchr8a.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on 220658U_EN3150_A01.pdf (5 pages, 227592 bytes).
+ 75i,13n,99p,308b,859s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/bitstrea/charter/bchb8a.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/bitstrea/charter/bchr8a.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on 220658U_EN3150_A01.pdf (6 pages, 254228 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 17 named destinations out of 1000 (max. 500000)
+ 136 PDF objects out of 1000 (max. 8388607)
+ 18 named destinations out of 1000 (max. 500000)
  40 words of extra memory for PDF output out of 10000 (max. 10000000)
 
