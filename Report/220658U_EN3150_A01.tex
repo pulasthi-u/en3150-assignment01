@@ -19,7 +19,14 @@
   stringstyle=\color{red},
   showstringspaces=false,
   columns=fullflexible,
-  breaklines=true
+  breaklines=true,
+  captionpos=b,
+  backgroundcolor=\color[rgb]{0.96,0.96,0.96},
+  xleftmargin=6pt,
+  frame=tlbr,
+  framesep=6pt,
+  framerule=0pt,
+  aboveskip=4pt
 }
 
 \title{
@@ -72,16 +79,13 @@
 		\end{pmatrix} ^ \top,
 	\] and directly use the result that \[
 		\mathbf{w}_\text{OLS}
-		=
-		\begin{pmatrix} w_0 & w_1 \end{pmatrix} ^ \top
-		=
-		\underset{\mathbf{w}}{\arg\min}
-		\left( \mathbf{y} - \mathbf{X} \mathbf{w} \right)^2
-		=
-		\left( \mathbf{X}^\top \mathbf{X} \right)^{-1} \mathbf{X}^\top \mathbf{y}.
+		= \begin{pmatrix} w_0 & w_1 \end{pmatrix} ^ \top
+		= \underset{\mathbf{w}}{\arg\min} \left( \mathbf{y} - \mathbf{X} \mathbf{w} \right)^2
+		= \left( \mathbf{X}^\top \mathbf{X} \right)^{-1} \mathbf{X}^\top \mathbf{y}.
 	\]
 	
-	This is exactly what we do in code X, and the results obtained from it are as follows:
+	This is exactly what we implement in the code in Listing \ref{q1_2_code}, and the results obtained
+	from it are as follows:
 	\begin{verbatim}
 Ordinary Least Squares Weights (w): [ 3.91672727 -3.55727273]
 	\end{verbatim}
@@ -92,19 +96,17 @@ Ordinary Least Squares Weights (w): [ 3.91672727 -3.55727273]
 		y = 3.91672727 - 3.55727273 x.
 	\]
 
-	A plot of the given data points against the predicted values is shown in Figure \ref{q1}.
+	A plot of the given data points against the predicted values is shown in Figure \ref{q1_2_img}.
 
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.8\linewidth]{images/q1.png}
-		\caption{abc}
-		\label{q1}
+		\includegraphics[width=0.9\linewidth]{images/q1_2.png}
+		\caption{Given data points against predicted linear model}
+		\label{q1_2_img}
 	\end{figure}
 
-	\textbf{Question 04} The code in X was used to calculate the loss for each model for each given value
-	of $\beta$.
-	
-	The output of the code was the following:
+	\textbf{Question 04} The code in Listing \ref{q1_4_code} was used to calculate the loss for each model for
+	each given value of $\beta$. The output of the code was the following:
 \begin{verbatim}
 Model 1 : [12 -4]
 	 Loss for beta = 1      : 0.435416262490386
@@ -129,10 +131,10 @@ Model 2 : [ 3.91 -3.55]
 			$10^{-6}$	& $0.9999$		& $1.0000$ \\
 			$10^3$		& $0.0002$		& $0.0002$ \\
 		\end{tblr}
-		\caption{s}
+		\caption{Losses for the two models each value of $\beta$}
 	\end{table}
 
-	\textbf{Question 05} We propose setting $\beta = 1$ to mitigate the impact of outliers.
+	\textbf{Question 05} We propose setting $\beta = 1$ to mitigate the impact of outliers. To see why, consider the following.
 	\newline
 
 	With very small values of $\beta$, the squared error term starts to dominate, and the loss becomes
@@ -145,7 +147,6 @@ Model 2 : [ 3.91 -3.55]
 	\] making the result almost independent of the model used, and making it difficult to distinguish
 	between several models.
 	\newline
-	
 	% tend to force the squared error term to become very small. In the presence
 	% of outliers, a model that closely approximates the behavior of the inliers would produce very large
 	% squared errors for the outliers, dominating the loss function. If we try to force the squared errors
@@ -168,8 +169,8 @@ Model 2 : [ 3.91 -3.55]
 	between the two models.
 	\newline
 
-	We can also see that $\beta = 10^{-6}$ is too small, as the resulting losses from the models in this 
-	case are again both approximately equal but this time close to $1$, leading to the same problem as above.
+	It can also be seen that $\beta = 10^{-6}$ is too small, as the resulting losses from the models are again both
+	approximately equal, but this time close to $1$, leading to the same problem as above.
 	\newline
 
 	Hence, $\beta = 1$ is the best choice of the given options, as it has yielded comparable losses for both
@@ -180,6 +181,16 @@ Model 2 : [ 3.91 -3.55]
 	for Model 2 is $0.9728$. Clearly, Model 1 has a lower loss and is therefore the better/more suitable model.
 	\newline
 
+	The plots in Figure \ref{q1_4_img} show that Model 1 passes through the inliers more closely whereas Model 2 is farther away
+	from the inliers (due to the influence of the outliers). This verifies that Model 1 is indeed the better model.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\linewidth]{images/q1_4.png}
+		\caption{Comparison of Models 1 and 2}
+		\label{q1_4_img}
+	\end{figure}
+
 	\textbf{Question 07} Let us start by rewriting the loss for a single data point as follows: \[
 		L\left(y_i, \hat{y_i}, \theta, \beta\right)
 		=
@@ -187,35 +198,36 @@ Model 2 : [ 3.91 -3.55]
 			\dfrac{1}{1 + \frac{\beta^2}{\left(y_i - \hat{y_i}\right)^2}},	& y_i \ne \hat{y_i}, \\
 			0,																& \text{otherwise}.
 		\end{cases}
-	\] It is clear then that for all $\hat{y_i}$, the loss is always non-negative and less than $1$, with
-	small values of $\left(y_i - \hat{y_i}\right)^2$ resulting in losses close to $0$ and larger values
-	resulting in losses close to $1$; and importantly, this property also holds true for outliers.
+	\] It is clear then that $0 \leq L\left(y_i, \hat{y_i}, \theta, \beta\right) < 1$ for all $\hat{y_i}$, with
+	small values of $\left(y_i - \hat{y_i}\right)^2$ resulting in losses close to $0$ and large values
+	resulting in losses close to $1$. Importantly, we observe that this property remains true for outliers.
 	\newline
 
-	This has the effect of keeping the loss restricted to a finite range, especially in the presence of outliers,
-	in which case a simpler loss such as the squared error would become very large, and not be bounded above.
+	This has the effect of keeping the loss always restricted to a finite range, even in the presence of outliers,
+	unlike with unbounded losses such as the squared error, which can grow to very large values.
 	\newline
 	
-	Further, because the loss is always non-negative, the mean loss over all the data points is minimized when
-	the loss from each individual data point is as small as possible.
+	Note also that because the loss due to each data point is always non-negative, the mean loss over all the data points is minimized
+	when the loss from each individual data point is as small as possible.
 	\newline
 	
 	Suppose we choose some threshold $E \in (0, 1)$ such that we would like to have \[
-		\dfrac{1}{1 + \frac{\beta^2}{\left(y_i - \hat{y_i}\right)^2}} \leq E.
-	\] This is equivalent to requiring \[
+		\dfrac{1}{1 + \frac{\beta^2}{\left(y_i - \hat{y_i}\right)^2}} \leq E
+	\] for each data point. But this is equivalent to requiring \[
 		\left(y_i - \hat{y_i}\right)^2 \leq \dfrac{E}{1 - E} \cdot \beta^2,
 		\quad \text{or} \quad
-		\left|y_i - \hat{y_i}\right| \leq \sqrt{\dfrac{E}{1 - E}} \cdot \beta.
-	\] Note that this defines an interval of values centered around the actual value $y_i$, that the
-	predicted $\hat{y_i}$ might lie within, for which the loss can still be considered "small enough",
-	and $\beta$ allows us to control how big or small this interval is. $\beta$ can be chosen
-	big enough to include the large distance that the outliers are away from what one might expect their
-	true values to be.
+		\left|y_i - \hat{y_i}\right| \leq \sqrt{\dfrac{E}{1 - E}} \cdot \beta,
+	\] i.e., which in turn essentially defines an interval of values centered around the actual value $y_i$ that the
+	predicted $\hat{y_i}$ might lie within, for which the loss can still be considered ``small enough".
+	\newline
+	
+	In this context, we can see $\beta$ acts as a hyperparameter that allows us to control how big or small the above interval is. It
+	can be chosen big enough to include the distance that the outliers are away from what one might expect their true values to be.
 	\newline
 
 	Hence, with this modification in place, we prevent the outliers from introducing very large losses, and encourage
-	the model to focus more on minimzing the loss due to the inliers, which would contribute more significantly
-	to the mean loss, due to the larger number of inliers compared to outliers.
+	the model to focus more on minimzing the loss due to the inliers, which significantly outnumber the outliers and thereby contribute
+	more significantly to the mean loss.
 	\newline
 
 	\textbf{Question 08} different loss
@@ -223,43 +235,45 @@ Model 2 : [ 3.91 -3.55]
 	\section{Loss Functions}
 
 	\textbf{Question 01} We calculate the squared error \[
-		\text{SE}(\hat{y}_i, y_i) = (\hat{y}_i - y_i)^2
+		\text{SE}(\hat{y_i}, y_i) = (\hat{y_i} - y_i)^2
 	\] and binary cross entropy \[
-		\text{BCE}(\hat{y}_i, y_i) = -y_i \log(\hat{y}_i) - (1 - y_i) \log(1 - \hat{y}_i)
-	\] of each predicted value $\hat{y}_i$ against the given corresponding target value $y_i$.
+		\text{BCE}(\hat{y_i}, y_i) = -y_i \log(\hat{y_i}) - (1 - y_i) \log(1 - \hat{y_i})
+	\] of each predicted value $\hat{y_i}$ against the given corresponding target value $y_i$.
 	\begin{table}[H]
 		\centering	
 		\begin{tblr}{
-			colspec={X[1, c] X[1, c] X[1, c] X[1, c]},
-			vlines, hlines,
+			colspec={X[1, c, m] X[1, c, m] X[1, c, m] X[1, c, m]},
+			hlines, vlines,
+			hline{Z}={1}{white},
+			vline{1}={Z}{white},
 			width=0.8\textwidth
 		}
 			True Value ($y_i$)	& Predicted Value ($\hat{y_i}$)	& $\text{SE}(\hat{y}_i, y_i)$	& $\text{BCE}(\hat{y}_i, y_i)$ \\
-			1 					& 0.005 						& 0.9900 						& 5.2983 \\
-			1 					& 0.010 						& 0.9801 						& 4.6052 \\
-			1 					& 0.050 						& 0.9025 						& 2.9957 \\
-			1 					& 0.100 						& 0.8100 						& 2.3026 \\
-			1 					& 0.200 						& 0.6400 						& 1.6094 \\
-			1 					& 0.300 						& 0.4900 						& 1.2040 \\
-			1 					& 0.400 						& 0.3600 						& 0.9163 \\
-			1 					& 0.500 						& 0.2500 						& 0.6931 \\
-			1 					& 0.600 						& 0.1600 						& 0.5108 \\
-			1 					& 0.700 						& 0.0900 						& 0.3567 \\
-			1 					& 0.800 						& 0.0400 						& 0.2231 \\
-			1 					& 0.900 						& 0.0100 						& 0.1054 \\
-			1 					& 1.000 						& 0.0000 						& 0.0000 \\
-								& Mean							& 0.4402		 				& 1.4407
+			$1$ 					& $0.005$ 						& $0.9900$ 						& $5.2983$ \\
+			$1$ 					& $0.01$ 						& $0.9801$ 						& $4.6052$ \\
+			$1$ 					& $0.05$ 						& $0.9025$ 						& $2.9957$ \\
+			$1$ 					& $0.1$ 						& $0.8100$ 						& $2.3026$ \\
+			$1$ 					& $0.2$ 						& $0.6400$ 						& $1.6094$ \\
+			$1$ 					& $0.3$ 						& $0.4900$ 						& $1.2040$ \\
+			$1$ 					& $0.4$ 						& $0.3600$ 						& $0.9163$ \\
+			$1$ 					& $0.5$ 						& $0.2500$ 						& $0.6931$ \\
+			$1$ 					& $0.6$ 						& $0.1600$ 						& $0.5108$ \\
+			$1$ 					& $0.7$ 						& $0.0900$ 						& $0.3567$ \\
+			$1$ 					& $0.8$ 						& $0.0400$ 						& $0.2231$ \\
+			$1$ 					& $0.9$ 						& $0.0100$ 						& $0.1054$ \\
+			$1$ 					& $1.0$ 						& $0.0000$ 						& $0.0000$ \\
+									& Mean							& $0.4402$		 				& $1.4407$
 		\end{tblr}
-		\caption{Losses for each predicted value}
+		\caption{Loss for each predicted value from both choices for the loss function}
 	\end{table}
 	
-	A plot of the different losses against the predicted values is shown in Figure \ref{q2}.
+	A plot of the different losses against the predicted values is shown in Figure \ref{q2_1_img}.
 
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.7\linewidth]{images/q2.png}
-		\caption{abc}
-		\label{q2}
+		\includegraphics[width=0.9\linewidth]{images/q2_1.png}
+		\caption{MSE and BCE loss against predicted value}
+		\label{q2_1_img}
 	\end{figure}
 
 	\textbf{Question 02} The MSE loss is more appropriate for Application 1 and the BCE loss is more appropriate for Application 2.
@@ -276,33 +290,33 @@ Model 2 : [ 3.91 -3.55]
 	\section{Data Pre-Processing}
 
 	\textbf{Question 01} We start by visualizing the distribution of each feature value to decide on a suitable method of scaling. Figure
-	\ref{q3_1} contains plots obtained of the distribution of each feature in the dataset.
+	\ref{q3_1_1_img} contains plots obtained of the distribution of each feature in the dataset.
 
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.7\linewidth]{images/q3_1.png}
-		\label{q3_1}
-		\caption{abc}
+		\includegraphics[width=\linewidth]{images/q3_1_1.png}
+		\label{q3_1_1_img}
+		\caption{Raw values of Feature 1 and Feature 2 for each data point}
 	\end{figure}
 
-	We then run the code in Y to obtain the following summary statistics of each feature:
+	We then run the code in Listing \ref{q3_1_code_1} to obtain the following summary statistics of each feature:
 	\begin{verbatim}
 Feature 1
-	 Mean 				: 0.06963158220374253
+	 Mean 														: 0.06963158220374253
 	 Standard Deviation : 0.751690461643816
-	 Maximum 			: 5.2
-	 Minimum 			: -2.790493210023752
-	 Range 				: 7.990493210023752
+	 Maximum 											: 5.2
+	 Minimum 											: -2.790493210023752
+	 Range 													: 7.990493210023752
 Feature 2
-	 Mean 				: -0.45935709567298505
+	 Mean 														: -0.45935709567298505
 	 Standard Deviation : 14.351150951654933
-	 Maximum 			: 36.752574877667975
-	 Minimum 			: -39.11938330852965
-	 Range 				: 75.87195818619762
+	 Maximum 											: 36.752574877667975
+	 Minimum 											: -39.11938330852965
+	 Range 													: 75.87195818619762
 	\end{verbatim}
 
 	Based on the plots and the summary statistics above, we conclude the following;
-	\begin{itemize}
+	\begin{itemize}[itemsep=1pt]
 		\item both features have means close to zero
 		\item the features vary on different scales, as they have significantly different standard deviations
 		\item both features take on both positive and negative values
@@ -311,7 +325,7 @@ Feature 2
 
 	To bring the values of both features to a similar scale while still preserving the structure and properties of
 	each feature, we consider the three following scaling methods;
-	\begin{enumerate}
+	\begin{enumerate}[itemsep=1pt]
 		\item standard scaling,
 		\item min-max scaling, and
 		\item max-abs scaling.
@@ -329,10 +343,128 @@ Feature 2
 	It also maps to a range between -1 and 1, so negative values map to negative values, and positives to positives.
 	\newline
 
-	Hence, we choose max-abs scaling as the method of scaling for both feature values. A plot of both feature values after the above
-	scaling was applied is shown in Figure \ref{q3_2}. The recalculated summary statistics for the scaled features are as follows:
+	Hence, we choose max-abs scaling as the method of scaling for both feature values. The code in Listing \ref{q3_1_code_2} implements
+	max-abs scaling. Plots of both feature values after such scaling are shown in Figure \ref{q3_1_2_img}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{images/q3_1_2.png}
+		\label{q3_1_2_img}
+		\caption{Max-abs scaled values of Feature 1 and Feature 2 for each data point}
+	\end{figure}
+	
+	The recalculated summary statistics for the scaled features are as follows:
 	\begin{verbatim}
-vab
+Feature 1 - Max-Abs Scaled
+	 Mean 															: -0.007381661238755984
+	 Standard Deviation 	: 0.1721201196828633
+	 Maximum 												: 1.0
+	 Minimum 												: -0.7691686427002166
+	 Range 														: 1.7691686427002167
+Feature 2 - Max-Abs Scaled
+	 Mean 															: 0.00609983651068688
+	 Standard Deviation 	: 0.38673155885534527
+	 Maximum 												: 1.0
+	 Minimum 												: -0.7939711778754481
+	 Range 														: 1.7939711778754481
 	\end{verbatim}
+
+	\appendix
+	\section{Code Snippets}
+	\label{code}
+		
+	\subsection{Impact of Outliers on Linear Regression}
+
+	\subsubsection{Question 02}
+	\begin{lstlisting}[label={q1_2_code}, caption={Ordinary Least Squares Regression and Plots}]
+# Load the data set
+x = np.arange(10).T
+y = np.array([20.26, 5.61, 3.14, -30, -40, -8.13, -11.73, -16.08, -19.95, -24.03]).T
+
+# Length of the data set
+N = len(x)
+
+# Construct a matrix X with each data point in one row, and each column representing a feature
+# The first entry of each row will be 1
+X = np.ones((N, 2))
+X[:, 1] = x
+
+# We want to choose a matrix of weights w such that (y - xW)^T * (y - xW) is minimized
+# The w that minimizes the above--the ordinary least squares weights--is given by
+w_OLS = np.linalg.inv(X.T @ X) @ X.T @ y
+
+# Print the learned ordinary least squares weights
+print ("Ordinary Least Squares Weights (w):", w_OLS)
+
+# Calculate the prediction for each data point based on the learned w
+y_hat = X @ w_OLS
+
+# Plot the original data points and the predicted values
+plt.plot(y_hat, label='Predictions', color='red', markevery=x, marker='o', markersize=5)
+plt.scatter(x, y, label='Data Points', color='blue')
+
+plt.legend()
+plt.xlabel('Independent Variable')
+plt.ylabel('Dependent Variable')
+plt.grid(True, alpha=0.3)
+
+plt.show()
+	\end{lstlisting}
+
+	\subsubsection{Question 04}
+	\begin{lstlisting}[label={q1_4_code}, caption={Loss Calculation for Different Models and Values of $\beta$}]
+# Set up the weight vectors representing the two given modelss
+w_1 = np.array([12, -4])
+w_2 = np.array([3.91, -3.55])
+
+# Iterate through each model
+for i in range(2):
+    w = [w_1, w_2][i]
+    print ("Model", i + 1, ":", w)
+
+    # Run the model on the data and find the residuals
+    y_hat = X @ w
+    residuals = y - y_hat
+
+    # Plot the values predicted by the model
+    plt.plot(y_hat, label='Model ' + str(i + 1) + ' Predictions', markevery=x, marker='o', markersize=5)
+
+    # Vary beta through each of the given values and find the loss
+    for beta in [1, 1E-6, 1E3]:
+        loss = (1 / N) * np.sum((residuals ** 2) / (residuals ** 2 + beta ** 2))
+        print ("\t Loss for beta =", "{:<6}".format(beta), ":", loss)
+	\end{lstlisting}
+
+	\subsection{Data Pre-Processing}
+
+	\subsubsection{Question 01}
+	\begin{lstlisting}[label={q3_1_code_1}, caption={Calculation of Summary Statistics}]
+def print_summary_statistics(feature):
+    mean = np.mean(feature)
+    std_dev = np.std(feature)
+    maximum = np.max(feature)
+    minimum = np.min(feature)
+    range_ = maximum - minimum
+
+    print ("\t Mean \t\t\t:", mean)
+    print ("\t Standard Deviation \t:", std_dev)
+    print ("\t Maximum \t\t:", maximum)
+    print ("\t Minimum \t\t:", minimum)
+    print ("\t Range \t\t\t:", range_)
+
+for i in range(2):
+    feature = [sparse_signal, epsilon][i]
+
+    print ("Feature", i + 1)
+    print_summary_statistics(feature)
+	\end{lstlisting}
+
+	\begin{lstlisting}[label=q3_1_code_2, caption={Max-Abs Scaling}]
+def max_abs_scale(feature):
+    max_abs = np.max(np.abs(feature))
+    if max_abs == 0: # Avoid division by zero
+        return feature
+    return feature / max_abs
+	\end{lstlisting}
 
 \end{document}
