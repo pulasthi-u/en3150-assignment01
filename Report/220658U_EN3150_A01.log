@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.6)  18 AUG 2025 20:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.6)  19 AUG 2025 11:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -592,24 +592,50 @@ Package pdftex.def Info: images/q2.png  used on input line 260.
 
 
 [4]
+Underfull \hbox (badness 10000) in paragraph at lines 265--267
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--271
+
+ []
+
 <images/q3_1.png, id=57, 916.3836pt x 615.0177pt>
 File: images/q3_1.png Graphic file (type png)
 <use images/q3_1.png>
-Package pdftex.def Info: images/q3_1.png  used on input line 274.
+Package pdftex.def Info: images/q3_1.png  used on input line 283.
 (pdftex.def)             Requested size: 303.53267pt x 203.70721pt.
 
 
-[5 <./images/q2.png> <./images/q3_1.png>]
-LaTeX Font Info:    Trying to load font information for TS1+bch on input line 297.
+[5 <./images/q2.png>]
+LaTeX Font Info:    Trying to load font information for TS1+bch on input line 306.
  (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1bch.fd
 File: ts1bch.fd 2004/10/18 font definitions for TS1/bch.
 )
+Underfull \hbox (badness 10000) in paragraph at lines 320--323
 
-LaTeX Warning: Reference `q3_2' on page 6 undefined on input line 320.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 324--326
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--331
+
+ []
 
 
 
-[6] (220658U_EN3150_A01.aux)
+[6 <./images/q3_1.png>]
+
+LaTeX Warning: Reference `q3_2' on page 7 undefined on input line 333.
+
+
+
+[7] (220658U_EN3150_A01.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -622,17 +648,17 @@ Package rerunfilecheck Info: File `220658U_EN3150_A01.out' has not changed.
 (rerunfilecheck)             Checksum: 65E9027C4486A89B3290BAD4F7984286;510.
  ) 
 Here is how much of TeX's memory you used:
- 15114 strings out of 473530
- 259721 string characters out of 5716247
+ 15115 strings out of 473530
+ 259727 string characters out of 5716247
  866471 words of memory out of 5000000
  38139 multiletter control sequences out of 15000+600000
  587926 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,99p,308b,859s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/bitstrea/charter/bchb8a.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/bitstrea/charter/bchr8a.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on 220658U_EN3150_A01.pdf (6 pages, 254228 bytes).
+Output written on 220658U_EN3150_A01.pdf (7 pages, 255844 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
+ 143 PDF objects out of 1000 (max. 8388607)
+ 19 named destinations out of 1000 (max. 500000)
  40 words of extra memory for PDF output out of 10000 (max. 10000000)
 

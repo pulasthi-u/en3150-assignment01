@@ -262,12 +262,21 @@ Model 2 : [ 3.91 -3.55]
 		\label{q2}
 	\end{figure}
 
-	\textbf{Question 02}
+	\textbf{Question 02} The MSE loss is more appropriate for Application 1 and the BCE loss is more appropriate for Application 2.
+	\newline
+
+	For Application 1, where the quantity being predicted is a continuous value, we would like the loss to vary gradually with 
+	difference between the predicted value and true value.
+	\newline
+	
+	For Application 2, where the goal is to map a continuous value to a binary value based on a certain threshold, we would like
+	continuous values below the threshold to have a significantly larger loss than values above the threshold (or vice versa). In this
+	case, we are not very interested in how far away the predicted continuous value is away from the threshold.
 
 	\section{Data Pre-Processing}
 
-	\textbf{Question 01} To decide a suitable form of scaling for each feature, we start by visualizing the
-	them. The plots in Figure \ref{q3_1} show the distribution of each feature in the dataset.
+	\textbf{Question 01} We start by visualizing the distribution of each feature value to decide on a suitable method of scaling. Figure
+	\ref{q3_1} contains plots obtained of the distribution of each feature in the dataset.
 
 	\begin{figure}[H]
 		\centering
@@ -292,7 +301,7 @@ Feature 2
 	 Range 				: 75.87195818619762
 	\end{verbatim}
 
-	Based on the plots above and the above summary statistics, we conclude the following;
+	Based on the plots and the summary statistics above, we conclude the following;
 	\begin{itemize}
 		\item both features have means close to zero
 		\item the features vary on different scales, as they have significantly different standard deviations
@@ -300,7 +309,7 @@ Feature 2
 		\item Feature 1 is sparsely distributed, with most values being equal to 0
 	\end{itemize}
 
-	To bring the values of both features to a similar scale, while still preserving the structure and properties of
+	To bring the values of both features to a similar scale while still preserving the structure and properties of
 	each feature, we consider the three following scaling methods;
 	\begin{enumerate}
 		\item standard scaling,
@@ -309,16 +318,19 @@ Feature 2
 	\end{enumerate}
 	
 	We rule out min-max scaling as it would limit both feature values to a range between 0 and 1, affecting the 
-	"symmetric" variation among both negative and positive values of both feature values.
+	``symmetric" variation of both feature values among both negative and positive values.
+	\newline
 
-	To choose between standard and max-abs scaling, we consider the sparsity of Feature 1. Standard scaling would 
-	map the zeros of Feature 1 to non-zero values, resulting in a loss of sparsity, which is a property that
-	one would likely want to preserve. Max-abs scaling does not affect sparsity, and maps zeros to zeros. Further, it
-	maps to a range between -1 and 1, so negative values map to negative values and positives to positives.
+	To choose between standard and max-abs scaling, we consider the sparsity of Feature 1.
+	\newline
+	
+	We observe that standard scaling would map zeros of Feature 1 to non-zero values, resulting in a loss of sparsity---a propertsy
+	one would likely want to preserve. On the other hand, max-abs scaling would not affect sparsity, as it would map zeros to zeros.
+	It also maps to a range between -1 and 1, so negative values map to negative values, and positives to positives.
+	\newline
 
-	Hence, we choose max-abs scaling for both feature values. A plot of both feature values after the above scaling
-	was applied is shown in Figure \ref{q3_2}. We recalculate the summary statistics for the scaled features too, and
-	the results obtained are given below:
+	Hence, we choose max-abs scaling as the method of scaling for both feature values. A plot of both feature values after the above
+	scaling was applied is shown in Figure \ref{q3_2}. The recalculated summary statistics for the scaled features are as follows:
 	\begin{verbatim}
 vab
 	\end{verbatim}
