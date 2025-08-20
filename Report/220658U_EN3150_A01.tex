@@ -36,7 +36,13 @@
   frame=tlbr,
   framesep=6pt,
   framerule=0pt,
-  aboveskip=4pt
+  aboveskip=4pt,
+  morekeywords={
+    % NumPy
+    numpy,np,array,arange,linspace,reshape,zeros,ones,empty,full,eye,random,randn,dot,linalg,mean,std,sum,min,max,argmin,argmax,
+    % Matplotlib
+    matplotlib,pyplot,plt,figure,subplots,plot,scatter,bar,hist,imshow,contour,title,xlabel,ylabel,legend,axis,grid,show
+  }
 }
 
 \title{
@@ -72,7 +78,6 @@
 \setlength{\parindent}{0pt}
 
 \begin{document}
-
 	\maketitle
 
 	\section{Impact of Outliers on Linear Regression}
@@ -252,13 +257,14 @@ Model 2 : [ 3.91 -3.55]
 	Hence, a loss function that produces a significant loss for inliers, but a more slowly increasing loss for outliers is appropriate.
 	\newline
 
-	We therefore propose the Huber Loss function, defined as follows: \[
+	We therefore propose the Huber Loss function, defined as follows (\cite{huberloss}): \[
 		H\left( y_i, x_i, \theta, \delta \right) = \begin{cases}
 			\frac{1}{2}\left(y_i - \hat{y_i}\right)^2,										& \left|y_i - \hat{y_i}\right| \leq \delta \\
-			\delta \cdot \left( \left|y_i - \hat{y_i}\right| - \frac{1}{2}\delta \right),	& \text{otherwise}.
+			\delta \cdot \left( \left|y_i - \hat{y_i}\right| - \frac{1}{2}\delta \right),	& \text{otherwise},
 		\end{cases}
-	\] In this case, $\delta$ is a hyperparameter that determines an interval of variation for points that can be considered inliers; the Huber
-	Loss is exactly the squared error for such points, but just an absolute difference for other points, i.e., outliers.
+	\] where $y_i$, $x_i$, $\theta$ and $\hat{y_i}$ stand for the same quantities as introduced above, and $\delta$ is a hyperparameter
+	that determines an interval of variation for points that can be considered inliers; the Huber Loss is exactly the squared error
+	for such points, but just an absolute difference for other points, i.e., outliers.
 
 	\section{Loss Functions}
 
@@ -324,24 +330,24 @@ Model 2 : [ 3.91 -3.55]
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=\linewidth]{images/q3_1_1.png}
-		\label{q3_1_1_img}
 		\caption{Raw values of Feature 1 and Feature 2 for each data point}
+		\label{q3_1_1_img}
 	\end{figure}
 
 	We then run the code in Listing \ref{q3_1_code_1} to obtain the following summary statistics of each feature:
 	\begin{verbatim}
 Feature 1
-	 Mean 														: 0.06963158220374253
-	 Standard Deviation : 0.751690461643816
+	 Mean 														: 0.019184855901577556
+	 Standard Deviation : 0.6522329762544182
 	 Maximum 											: 5.2
-	 Minimum 											: -2.790493210023752
-	 Range 													: 7.990493210023752
+	 Minimum 											: -3.068923231010246
+	 Range 													: 8.268923231010247
 Feature 2
-	 Mean 														: -0.45935709567298505
-	 Standard Deviation : 14.351150951654933
-	 Maximum 											: 36.752574877667975
-	 Minimum 											: -39.11938330852965
-	 Range 													: 75.87195818619762
+	 Mean 														: -1.7085235048185898
+	 Standard Deviation : 13.302554852300073
+	 Maximum 											: 31.13858494901702
+	 Minimum 											: -32.69009199576038
+	 Range 													: 63.8286769447774
 	\end{verbatim}
 
 	Based on the plots and the summary statistics above, we conclude the following;
@@ -360,8 +366,8 @@ Feature 2
 		\item max-abs scaling.
 	\end{enumerate}
 	
-	We rule out min-max scaling as it would limit both feature values to a range between 0 and 1, affecting the 
-	``symmetric" variation of both feature values among both negative and positive values.
+	We rule out min-max scaling as it would destroy the sparsity of Feature 1 by mapping all zeros to non-zero values, and limit
+	both feature values to a range between 0 and 1, affecting their ``symmetric" variation among both negative and positive values.
 	\newline
 
 	To choose between standard and max-abs scaling, we consider the sparsity of Feature 1.
@@ -378,25 +384,38 @@ Feature 2
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=\linewidth]{images/q3_1_2.png}
-		\label{q3_1_2_img}
 		\caption{Max-abs scaled values of Feature 1 and Feature 2 for each data point}
+		\label{q3_1_2_img}
 	\end{figure}
 	
 	The recalculated summary statistics for the scaled features are as follows:
 	\begin{verbatim}
 Feature 1 - Max-Abs Scaled
-	 Mean 															: -0.007381661238755984
-	 Standard Deviation 	: 0.1721201196828633
+	 Mean 															: 0.0036893953656879897
+	 Standard Deviation 	: 0.12542941851046505
 	 Maximum 												: 1.0
-	 Minimum 												: -0.7691686427002166
-	 Range 														: 1.7691686427002167
+	 Minimum 												: -0.5901775444250472
+	 Range 														: 1.5901775444250472
 Feature 2 - Max-Abs Scaled
-	 Mean 															: 0.00609983651068688
-	 Standard Deviation 	: 0.38673155885534527
-	 Maximum 												: 1.0
-	 Minimum 												: -0.7939711778754481
-	 Range 														: 1.7939711778754481
+	 Mean 															: -0.052264261141882686
+	 Standard Deviation 	: 0.40692925715918127
+	 Maximum 												: 0.9525389207548091
+	 Minimum 												: -1.0
+	 Range 														: 1.952538920754809
 	\end{verbatim}
+
+	For the sake of comparison, we also include plots of min-max scaling and standard scaling applied to both features
+	in Figure \ref{q3_1_3_img}. The code implementing min-max and standard scaling is included in Listing \ref{q3_1_code_3}.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{images/q3_1_3.png}
+		\caption{Min-Max and Standard Scaled values of Feature 1 and Feature 2 for each data point}
+		\label{q3_1_3_img}
+	\end{figure}
+
+	\bibliographystyle{IEEEtran}
+	\bibliography{references}
 
 	\appendix
 	\section{Code Snippets}
@@ -494,6 +513,22 @@ def max_abs_scale(feature):
     if max_abs == 0: # Avoid division by zero
         return feature
     return feature / max_abs
+	\end{lstlisting}
+
+	\begin{lstlisting}[label=q3_1_code_3, caption={Min-Max and Standard Scaling}]
+def min_max_scale(feature):
+    minimum = np.min(feature)
+    maximum = np.max(feature)
+    if maximum == minimum: # Avoid division by zero
+        return feature
+    return (feature - minimum) / (maximum - minimum)
+
+def standard_scale(feature):
+    mean = np.mean(feature)
+    std_dev = np.std(feature)
+    if std_dev == 0: # Avoid division by zero
+        return feature
+    return (feature - mean) / std_dev
 	\end{lstlisting}
 
 \end{document}
