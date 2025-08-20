@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.6)  19 AUG 2025 13:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.6)  20 AUG 2025 11:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -733,12 +733,12 @@ Package pdftex.def Info: images/q1_4.png  used on input line 200.
 
 
 [3 <./images/q1_4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 212--216
+Underfull \hbox (badness 10000) in paragraph at lines 212--214
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--220
+Underfull \hbox (badness 10000) in paragraph at lines 215--220
 
  []
 
@@ -748,7 +748,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 221--224
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--234
+Underfull \hbox (badness 10000) in paragraph at lines 225--228
 
  []
 
@@ -758,10 +758,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 235--238
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--243
+Underfull \hbox (badness 10000) in paragraph at lines 239--242
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 243--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--251
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--254
+
+ []
+
+
+
+[4]
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -770,64 +788,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 239--243
 > Step: execute table commands.
 > Step: calculate cell and line sizes.
 > Step: build the whole table.
-
-
-[4]
 <images/q2_1.png, id=89, 400.3758pt x 312.2064pt>
 File: images/q2_1.png Graphic file (type png)
 <use images/q2_1.png>
-Package pdftex.def Info: images/q2_1.png  used on input line 285.
+Package pdftex.def Info: images/q2_1.png  used on input line 302.
 (pdftex.def)             Requested size: 390.25534pt x 304.33571pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--292
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 307--309
 
  []
 
 
-
-[5 <./images/q2_1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 293--296
+Underfull \hbox (badness 10000) in paragraph at lines 310--313
 
  []
 
-<images/q3_1_1.png, id=98, 1076.1003pt x 714.7503pt>
+<images/q3_1_1.png, id=97, 1076.1003pt x 714.7503pt>
 File: images/q3_1_1.png Graphic file (type png)
 <use images/q3_1_1.png>
-Package pdftex.def Info: images/q3_1_1.png  used on input line 308.
+Package pdftex.def Info: images/q3_1_1.png  used on input line 326.
 (pdftex.def)             Requested size: 433.62pt x 288.01086pt.
 
 
-[6 <./images/q3_1_1.png>]
-LaTeX Font Info:    Trying to load font information for TS1+bch on input line 331.
+[6 <./images/q2_1.png>]
+LaTeX Font Info:    Trying to load font information for TS1+bch on input line 349.
  (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1bch.fd
 File: ts1bch.fd 2004/10/18 font definitions for TS1/bch.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 345--348
+Underfull \hbox (badness 10000) in paragraph at lines 363--366
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--351
+
+[7 <./images/q3_1_1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 367--369
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 352--356
+Underfull \hbox (badness 10000) in paragraph at lines 370--374
 
  []
 
-<images/q3_1_2.png, id=109, 1076.1003pt x 714.7503pt>
+<images/q3_1_2.png, id=117, 1076.1003pt x 714.7503pt>
 File: images/q3_1_2.png Graphic file (type png)
 <use images/q3_1_2.png>
-Package pdftex.def Info: images/q3_1_2.png  used on input line 362.
+Package pdftex.def Info: images/q3_1_2.png  used on input line 380.
 (pdftex.def)             Requested size: 433.62pt x 288.01086pt.
 
 
-[7 <./images/q3_1_2.png>]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 390.
+[8 <./images/q3_1_2.png>]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 408.
 
-
-[8]
 
 [9]
 
@@ -842,13 +857,13 @@ Package rerunfilecheck Info: File `220658U_EN3150_A01.out' has not changed.
 Here is how much of TeX's memory you used:
  25644 strings out of 473530
  485872 string characters out of 5716247
- 1342839 words of memory out of 5000000
+ 1356839 words of memory out of 5000000
  48374 multiletter control sequences out of 15000+600000
  589657 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,99p,433b,1989s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,99p,433b,1993s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/bitstrea/charter/bchb8a.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/bitstrea/charter/bchr8a.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on 220658U_EN3150_A01.pdf (10 pages, 361340 bytes).
+Output written on 220658U_EN3150_A01.pdf (10 pages, 363409 bytes).
 PDF statistics:
  293 PDF objects out of 1000 (max. 8388607)
  109 named destinations out of 1000 (max. 500000)

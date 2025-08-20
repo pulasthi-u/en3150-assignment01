@@ -63,10 +63,10 @@
 \author{
 	\textbf{Udugamasooriya P. H. J.}\\
 	220658U\\
-	\small{Progress on \href{https://github.com/pulasthi-u/en3160-assignment01}{GitHub \extlink}}
+	\small{Progress on \href{https://github.com/pulasthi-u/en3150-assignment01}{GitHub \extlink}}
 }
 
-\date{19 August 2025}
+\date{20 August 2025}
 
 \allowdisplaybreaks
 \setlength{\parindent}{0pt}
@@ -189,10 +189,10 @@ Model 2 : [ 3.91 -3.55]
 	\newline
 
 	\textbf{Question 06} We will fix $\beta = 1$. The loss for Model 1 then, is $0.4354$, whereas the loss
-	for Model 2 is $0.9728$. Clearly, Model 1 has a lower loss and is therefore the better/more suitable model.
+	for Model 2 is $0.9728$. Model 1 has a lower loss and is therefore the better/more suitable model.
 	\newline
 
-	The plots in Figure \ref{q1_4_img} show that Model 1 passes through the inliers more closely whereas Model 2 is farther away
+	Furthermore, the plots in Figure \ref{q1_4_img} show that Model 1 passes through the inliers more closely whereas Model 2 is farther away
 	from the inliers (due to the influence of the outliers). This verifies that Model 1 is indeed the better model.
 
 	\begin{figure}[H]
@@ -203,15 +203,19 @@ Model 2 : [ 3.91 -3.55]
 	\end{figure}
 
 	\textbf{Question 07} Let us start by rewriting the loss for a single data point as follows: \[
-		L\left(y_i, \hat{y_i}, \theta, \beta\right)
+		L\left(y_i, x_i, \theta, \beta\right)
 		=
 		\begin{cases}
 			\dfrac{1}{1 + \frac{\beta^2}{\left(y_i - \hat{y_i}\right)^2}},	& y_i \ne \hat{y_i}, \\
-			0,																& \text{otherwise}.
+			0,																& \text{otherwise},
 		\end{cases}
-	\] It is clear then that $0 \leq L\left(y_i, \hat{y_i}, \theta, \beta\right) < 1$ for all $\hat{y_i}$, with
-	small values of $\left(y_i - \hat{y_i}\right)^2$ resulting in losses close to $0$ and large values
-	resulting in losses close to $1$. Importantly, we observe that this property remains true for outliers.
+	\] where $\hat{y_i}$ is the prediction for the data point $x_i$, obtained by applying the model described by the parameters $\theta$.
+	\newline
+	
+	Now because $\left(y_i - \hat{y_i}\right)^2 \geq 0$ for all $\hat{y_i}$, it is clear that
+	$0 \leq L\left(y_i, x_i, \theta, \beta\right) < 1$ also, with small values of $\left(y_i - \hat{y_i}\right)^2$
+	resulting in losses close to $0$ and large values resulting in losses close to $1$. Importantly, we observe that this property
+	remains true even for outliers.
 	\newline
 
 	This has the effect of keeping the loss always restricted to a finite range, even in the presence of outliers,
@@ -228,7 +232,7 @@ Model 2 : [ 3.91 -3.55]
 		\left(y_i - \hat{y_i}\right)^2 \leq \dfrac{E}{1 - E} \cdot \beta^2,
 		\quad \text{or} \quad
 		\left|y_i - \hat{y_i}\right| \leq \sqrt{\dfrac{E}{1 - E}} \cdot \beta,
-	\] i.e., which in turn essentially defines an interval of values centered around the actual value $y_i$ that the
+	\] i.e., it defines an interval of values centered around the actual value $y_i$ that the
 	predicted $\hat{y_i}$ might lie within, for which the loss can still be considered ``small enough".
 	\newline
 	
@@ -241,7 +245,20 @@ Model 2 : [ 3.91 -3.55]
 	more significantly to the mean loss.
 	\newline
 
-	\textbf{Question 08} different loss
+	\textbf{Question 08} Based on the nature of the outliers in the given data, we need a loss that does not completely discard them, as
+	the outliers in this case still seem to follow the same general trend as the inliers and are not extremely far away from them.
+	\newline
+	
+	Hence, a loss function that produces a significant loss for inliers, but a more slowly increasing loss for outliers is appropriate.
+	\newline
+
+	We therefore propose the Huber Loss function, defined as follows: \[
+		H\left( y_i, x_i, \theta, \delta \right) = \begin{cases}
+			\frac{1}{2}\left(y_i - \hat{y_i}\right)^2,										& \left|y_i - \hat{y_i}\right| \leq \delta \\
+			\delta \cdot \left( \left|y_i - \hat{y_i}\right| - \frac{1}{2}\delta \right),	& \text{otherwise}.
+		\end{cases}
+	\] In this case, $\delta$ is a hyperparameter that determines an interval of variation for points that can be considered inliers; the Huber
+	Loss is exactly the squared error for such points, but just an absolute difference for other points, i.e., outliers.
 
 	\section{Loss Functions}
 
@@ -294,9 +311,10 @@ Model 2 : [ 3.91 -3.55]
 	difference between the predicted value and true value.
 	\newline
 	
-	For Application 2, where the goal is to map a continuous value to a binary value based on a certain threshold, we would like
-	continuous values below the threshold to have a significantly larger loss than values above the threshold (or vice versa). In this
-	case, we are not very interested in how far away the predicted continuous value is away from the threshold.
+	For Application 2, the goal is to map a continuous value to a binary value based on a certain threshold. In this case, we would like
+	to heavily penalize predictions the farther they away below (or above) the threshold, but give little to no penalty for predictions
+	on the other side of the threshold, with the hope that it will quickly be forced to the correct side if it happens to land on the
+	wrong side.
 
 	\section{Data Pre-Processing}
 
